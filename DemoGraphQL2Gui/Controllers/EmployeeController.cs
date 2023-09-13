@@ -25,11 +25,17 @@ namespace DemoGraphQL2Gui.Controllers
         {
             try
             {
+                var graphQLEndpoint = Environment.GetEnvironmentVariable("GRAPHQL_ENDPOINT");
+
+                if (string.IsNullOrEmpty(graphQLEndpoint))
+                {
+                    graphQLEndpoint = "https://localhost:7188/graphql/";
+                }
+
                 // Create a GraphQL client
                 var client = new GraphQLHttpClient(new GraphQLHttpClientOptions
                 {
-                    //EndPoint = new Uri("https://localhost:7188/graphql/"),
-                    EndPoint = new Uri("http://localhost:82/graphql/"),
+                    EndPoint = new Uri(graphQLEndpoint),
                 },
                 new NewtonsoftJsonSerializer(), _httpClient);
 
