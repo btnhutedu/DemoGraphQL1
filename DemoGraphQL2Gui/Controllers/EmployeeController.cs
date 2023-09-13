@@ -28,7 +28,8 @@ namespace DemoGraphQL2Gui.Controllers
                 // Create a GraphQL client
                 var client = new GraphQLHttpClient(new GraphQLHttpClientOptions
                 {
-                    EndPoint = new Uri("https://localhost:7188/graphql/"),
+                    //EndPoint = new Uri("https://localhost:7188/graphql/"),
+                    EndPoint = new Uri("http://localhost:82/graphql/"),
                 },
                 new NewtonsoftJsonSerializer(), _httpClient);
 
