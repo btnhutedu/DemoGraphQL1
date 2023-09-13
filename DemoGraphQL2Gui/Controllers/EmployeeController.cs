@@ -25,12 +25,17 @@ namespace DemoGraphQL2Gui.Controllers
         {
             try
             {
-                var graphQLEndpoint = Environment.GetEnvironmentVariable("GRAPHQL_ENDPOINT");
+                string graphQLEndpoint = string.Empty;
+                bool isDevelopment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development";
 
-                if (string.IsNullOrEmpty(graphQLEndpoint))
+                if (isDevelopment)
                 {
                     graphQLEndpoint = "https://localhost:7188/graphql/";
                 }
+                else
+                {
+                    graphQLEndpoint = "http://localhost:82/graphql/";
+                }    
 
                 // Create a GraphQL client
                 var client = new GraphQLHttpClient(new GraphQLHttpClientOptions
