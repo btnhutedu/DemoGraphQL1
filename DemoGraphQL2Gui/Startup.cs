@@ -41,7 +41,7 @@
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Employee}/{action=Index}/{id?}");
+                    pattern: "{controller=Department}/{action=Index}/{id?}");
             });
         }
     }

@@ -1,0 +1,16 @@
+﻿@model DemoGraphQL2Gui.Models.Department;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "GraphQL";
+}
+
+@{
+    <h3>Update Department</h3>
+    <form method="post" asp-action="UpdateDepartment" asp-controller="Department">
+        <div>department name</div>
+        <input asp-for="DepartmentId" id="DepartmentId" name="DepartmentId" type="text" readonly />
+        <input asp-for="Name" id="Name" name="Name" type="text" />
+        <button type="submit">Update</button>
+    </form>
+}
